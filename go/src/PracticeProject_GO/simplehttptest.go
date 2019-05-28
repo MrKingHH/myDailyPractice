@@ -4,18 +4,17 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net"
 	"net/http"
 	"strconv"
 )
-
 //定义自己的路由器
 type MyMux struct{
 
 }
 
-//根据客户端的json数据定义的对应结构体变量
 type point struct {
 	Metric string			`json:"metric"`
 	TimeStamp int64			`json:"timestamp"`
@@ -26,6 +25,20 @@ type point struct {
 type responseExample struct {
 	Message string	`json:"message"`
 	Error 	string	`json:"error"`
+}
+
+type TSSubQuery struct {
+	Aggregator  string					`json:"aggregator"`
+	Metric      string					`json:"metric"`
+	//此处tags不确定，因此不能定义具体的结构体
+	Tags		map[string]string		`json:"tags"`
+}
+
+//简单的查询示例
+type TSQuery struct {
+	Start 					int64			`json:"start"`
+	End 					int64			`json:"end"`
+	Queries					[]TSSubQuery	`json:"queries"`
 }
 
 func (mux *MyMux) sayHello(w http.ResponseWriter, r *http.Request) {
@@ -76,7 +89,7 @@ func (mux *MyMux) writeJsonToClient(w http.ResponseWriter, r *http.Request){
 	_, _ = fmt.Fprintf(w, "%s\n", jsonData)
 }
 
-func (mux *MyMux) parseJsonFromClient(w http.ResponseWriter, r *http.Request){
+func (mux *MyMux) parseJsonFromClient1(w http.ResponseWriter, r *http.Request){
 	if r.Method != "POST"{
 		http.Error(w, "the method is not allowed", http.StatusMethodNotAllowed)
 	}
@@ -84,17 +97,15 @@ func (mux *MyMux) parseJsonFromClient(w http.ResponseWriter, r *http.Request){
 	if r.Header.Get("Content-TyPe") != "application/json"{
 		http.Error(w, "please set Encode method application/json", http.StatusBadRequest)
 	}
-
 	//流式解码器
 	br := bufio.NewReader(r.Body)
+
 	// 查看前1个字节
 	f, err := br.Peek(1)
-
 	if err != nil || len(f) != 1 {
 		http.Error(w, "peek error: "+ err.Error(), http.StatusBadRequest)
 		return
 	}
-
 	// Peek to see if this is a JSON array.
 	var multi bool
 	switch f[0] {
@@ -108,7 +119,7 @@ func (mux *MyMux) parseJsonFromClient(w http.ResponseWriter, r *http.Request){
 	}
 
 	dps := make([]point,1)
-	//如果是多个对象{}组成的数组[],那么解码到dps
+	//如果是多个对象{}组成的数组[],那么久解码到dps
 	if dec := json.NewDecoder(br);multi{
 		if err := dec.Decode(&dps); err!=nil{
 			http.Error(w, "json array decode error", http.StatusBadRequest)
@@ -120,15 +131,51 @@ func (mux *MyMux) parseJsonFromClient(w http.ResponseWriter, r *http.Request){
 			return
 		}
 	}
-
-	//将结构体数据解码成客户端json
+	// fmt.Print(len(dps))
+	// fmt.Print(dps)
 	jsonData, err:= json.Marshal(dps)
 	if err!= nil{
 		log.Fatalf("JSON marshaling  failed: %s",err)
 	}
-	//在控制台输出
+
+	w.Header().Set("Content-Type","application/json")
 	fmt.Printf("%s\n", jsonData)
-	//在客户端输出
+
+	_, _ = fmt.Fprintf(w, "%s\n", jsonData)
+	//_, _ = fmt.Fprint(w, jsonData)
+}
+
+func (mux *MyMux) parseJsonFromClient2(w http.ResponseWriter, r *http.Request){
+	if r.Method != "POST"{
+		http.Error(w, "the method is not allowed", http.StatusMethodNotAllowed)
+	}
+	result,_ := ioutil.ReadAll(r.Body)
+
+	//将json数据格式转成对象格式
+	var query TSQuery
+	if err :=json.Unmarshal(result, &query); err != nil{
+		log.Fatalf("Json unmarshaling failed: %s", err)
+	}
+
+	//取出转换之后对象里的值
+	fmt.Print(query.Start)
+	fmt.Print("\n")
+	fmt.Print(query.End)
+	fmt.Print("\n")
+	//遍历slice. index 和 value
+	for index, subQuery := range query.Queries{
+		fmt.Printf("索引是%d，聚合器是%s，Metric名字是%s \n",index,subQuery.Aggregator,subQuery.Metric)
+		//遍历map. name 和 value
+		for name, value :=  range subQuery.Tags{
+			fmt.Printf("TagKey是%s，TagValue是%s\n", name, value)
+		}
+	}
+
+	//将刚刚转换之后的对象格式又转成json格式
+	jsonData, _ := json.MarshalIndent(query, "","	")
+	fmt.Printf("%s\n", jsonData)
+
+	//输出到浏览器端
 	w.Header().Set("Content-Type","application/json")
 	_, _ = fmt.Fprintf(w, "%s\n", jsonData)
 }
@@ -143,8 +190,10 @@ func (mux *MyMux) ServeHTTP(w http.ResponseWriter, r *http.Request){
 		mux.sayHi(w, r)
 	case "/jsonGet":
 		mux.writeJsonToClient(w, r)
-	case "/jsonParse":
-		mux.parseJsonFromClient(w, r)
+	case "/jsonParse1":
+		mux.parseJsonFromClient1(w, r)
+	case "/jsonParse2":
+		mux.parseJsonFromClient2(w, r)
 	default:
 		http.Error(w, "没有此url路径", http.StatusBadRequest)
 	}
