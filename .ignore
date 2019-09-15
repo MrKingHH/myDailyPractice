@@ -1,5 +1,5 @@
 # idea ide
 .idea/
-./java/.idea
+java/.idea
 *.iml
 java/core-module/target
