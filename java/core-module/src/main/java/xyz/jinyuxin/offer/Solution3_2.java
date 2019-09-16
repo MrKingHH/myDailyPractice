@@ -1,6 +1,10 @@
 package xyz.jinyuxin.offer;
 
-public class FindDuplicateWithoutModify {
+
+/**
+ * 面试题3.2 不修改数组找出重复的数字
+ * */
+public class Solution3_2 {
   public static void main(String[] args) {
     int[] arr = {2,1,5,4,3,2,6,7};
     findDuplicate(arr);

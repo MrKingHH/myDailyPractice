@@ -3,7 +3,10 @@ package xyz.jinyuxin.offer;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class FindDuplicate {
+/**
+ * 面试题3：找出数组中重复的数字
+ * */
+public class Solution3_1 {
 
   public static void main(String[] args) {
     int[] arr = {2,3,1,1,2,5,3};

@@ -1,6 +1,6 @@
 package xyz.jinyuxin.offer;
 
-public class FindInTwoArray {
+public class Solution4 {
   public static void main(String[] args) {
     int[][] arr = {
             {1, 2, 8, 9},

@@ -1,25 +1,15 @@
 package xyz.jinyuxin.offer;
 
-class BinaryTyeeNode {
-  int data;
-  BinaryTyeeNode left, right;
 
-  public BinaryTyeeNode(int data) {
-    this.data = data;
-    this.left = null;
-    this.right = null;
-  }
-}
-
-public class BuildBinaryTree {
+public class Solution7 {
   public static void main(String[] args) {
     int[] preorder = {1, 2, 4, 7, 3, 5, 6, 8};
     int[] inorder = {4, 7, 2, 1, 5, 3, 8, 6};
-    BinaryTyeeNode root = construct(preorder, inorder);
+    BinaryTreeNode root = construct(preorder, inorder);
     preOrder(root);
   }
 
-  public static BinaryTyeeNode construct(int[] pre, int[] in) {
+  public static BinaryTreeNode construct(int[] pre, int[] in) {
     if (pre == null || in == null) {
       return null;
     }
@@ -27,9 +17,9 @@ public class BuildBinaryTree {
     return coreConstruct(pre, 0, pre.length - 1, in, 0, in.length - 1);
   }
 
-  public static BinaryTyeeNode coreConstruct(int[] pre, int preStart, int preEnd, int[] in, int inStart, int inEnd) {
+  public static BinaryTreeNode coreConstruct(int[] pre, int preStart, int preEnd, int[] in, int inStart, int inEnd) {
     int root = pre[preStart];
-    BinaryTyeeNode node = new BinaryTyeeNode(root);
+    BinaryTreeNode node = new BinaryTreeNode(root);
     //如果只有一个节点，则直接返回根节点
     if(preStart==preEnd) {
       if (inStart==inEnd) {
@@ -65,7 +55,7 @@ public class BuildBinaryTree {
     return node;
   }
 
-  public static void preOrder(BinaryTyeeNode root) {
+  public static void preOrder(BinaryTreeNode root) {
     if(root!=null) {
       System.out.println(root.data);
       preOrder(root.left);
