@@ -19,7 +19,7 @@ public class Solution2 {
   public static void printReverseString(String line) {
     //两个--替换成一个空格
     String str = line.replaceAll("--", " ");
-    //列出所有特殊字符
+    //列出所有特殊字符,把所有特殊字符替换成一个空格
     String regex = "[`~!@#$%^&*()+=|{}':;\\[\\].<>/·！@#￥%……&*（）——+{}【】；：“”‘’。，、？]";
     String str1 = str.replaceAll(regex, " ");
 
