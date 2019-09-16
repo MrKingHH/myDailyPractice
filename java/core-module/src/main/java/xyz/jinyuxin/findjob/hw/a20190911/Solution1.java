@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  *
  * 1. ai<=bj
- * 2. ai bj 距离小于等于r 找不到的话就返回最近的那个
+ * 2. ai bj 距离小于等于r 找不到的话就返回最近的那个,没有最近的，就丢弃ai。
  * 输入:A={1,3,5},B={2,4,6},R=1
  * 输出：{1,2}{3,4}{5,6}
  * */
@@ -48,9 +48,9 @@ public class Solution1 {
           if (Math.abs(intArr1[i] - intArr2[j]) <= distance) {
             times[i]++;
             System.out.print("(" + intArr1[i] + "," + intArr2[j] + ")");
-            continue;
-          } else {//否则就输出当前的j。只有ai没有对应的数据时，才输出大于距离的数。
-            if (times[i] == 0) {
+          } else {
+            //在距离大于distance的时候，要保证ai在前面没有找到距离小于等于distance的数，即times[i]等于0
+           if (times[i] == 0) {
               System.out.print("(" + intArr1[i] + "," + intArr2[j] + ")");
             }
           }
