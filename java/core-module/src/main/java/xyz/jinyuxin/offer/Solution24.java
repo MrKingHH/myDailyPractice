@@ -1,7 +1,7 @@
 package xyz.jinyuxin.offer;
 
 /**
- *
+ *面试题24：反转链表
  * */
 public class Solution24 {
   public static void main(String[] args) {
