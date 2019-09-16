@@ -10,7 +10,7 @@ public class Solution6 {
   public static void main(String[] args) {
     int[] arr = {100, 101, 25, 45, 74, 86, 98};
     ListNode list = ListNode.createListTail(arr);
-    ListNode.printList(list);
+    ListNode.printList(list.next);
     printListFromTailWithStack(list);
   }
 

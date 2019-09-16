@@ -8,10 +8,10 @@ public class Solution24 {
     int[] arr = {100, 101, 25, 45, 74, 86, 98};
     ListNode list = ListNode.createListTail(arr);
     System.out.println("反转之前的链表为:");
-    ListNode.printList(list);
+    ListNode.printList(list.next);
     reverseList(list);
     System.out.println("反转之后的链表为:");
-    ListNode.printList(list);
+    ListNode.printList(list.next);
   }
 
   public static ListNode reverseList(ListNode list) {

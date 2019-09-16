@@ -38,12 +38,13 @@ public class ListNode {
     return head;
   }
 
+  //传入的是不带头结点的链表
   public static void printList(ListNode list) {
     System.out.println("打印链表：");
     ListNode head = list;
-    while (head.next != null) {
-      head = head.next;
+    while (head != null) {
       System.out.print(head.data + " ");
+      head = head.next;
     }
     System.out.println();
   }
