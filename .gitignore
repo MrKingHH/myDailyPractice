@@ -3,3 +3,4 @@
 java/.idea/
 *.iml
 java/target/
+java/core-module/target
