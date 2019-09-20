@@ -1,14 +1,6 @@
 package xyz.jinyuxin.datastruct.sort;
 
 public class MergeSort {
-  public static void main(String[] args) {
-    int[] arr = {8, 6, 5, 7, 4, 2, 3, 1};
-    mergeSort(arr, 0, arr.length - 1);
-    for (int x : arr) {
-      System.out.println(x);
-    }
-  }
-
   public static void mergeSort(int[] arr, int low, int high) {
     if (low < high) {
       int mid = (low + high) / 2;
@@ -24,26 +16,28 @@ public class MergeSort {
     int[] temp = new int[high - low + 1];
     //把数组arr的元素拷贝到temp中
     for (int k = low; k <= high; k++) {
-      temp[k-low] = arr[k];
+      temp[k - low] = arr[k];
     }
-    int i, j, k;
+    int i;
+    int j;
+    int k;
     for (i = low, j = mid + 1, k = i; i <= mid && j <= high; k++) {
-      if (temp[i-low] <= temp[j-low]) {
-        arr[k] = temp[i-low];
+      if (temp[i - low] <= temp[j - low]) {
+        arr[k] = temp[i - low];
         i++;
       } else {
-        arr[k] = temp[j-low];
+        arr[k] = temp[j - low];
         j++;
       }
     }
 
     while (i <= mid) {
-      arr[k++] = temp[i-low];
+      arr[k++] = temp[i - low];
       i++;
     }
 
     while (j <= high) {
-      arr[k++] = temp[j-low];
+      arr[k++] = temp[j - low];
       j++;
     }
 

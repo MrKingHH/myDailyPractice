@@ -3,13 +3,8 @@ package xyz.jinyuxin.offer;
 
 /**
  * 面试题3.2 不修改数组找出重复的数字
- * */
-public class Solution3_2 {
-  public static void main(String[] args) {
-    int[] arr = {2,1,5,4,3,2,6,7};
-    findDuplicate(arr);
-  }
-
+ */
+public class Solution302 {
   public static void findDuplicate(int[] arr) {
     if (arr == null || arr.length == 0) {
       return;
@@ -24,9 +19,9 @@ public class Solution3_2 {
       //统计范围内的数字个数
       int num = countRange(arr, start, middle);
       //如果此时头指针和尾指针指向同一个位置
-      if (start==end) {
+      if (start == end) {
         if (num > 1) {
-          System.out.printf("找到一个重复数字%d\n",start);
+          System.out.printf("找到一个重复数字%d\n", start);
           return;
         } else {
           break;
@@ -38,7 +33,7 @@ public class Solution3_2 {
       if (num > (middle - start + 1)) {
         end = middle;
       } else { //如果在左半部分没有，那么肯定在右半部分有重复的，调整头指针的位置
-        start=middle+1;
+        start = middle + 1;
       }
     }
     System.out.println("没有找到重复数字...");

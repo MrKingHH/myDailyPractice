@@ -1,18 +1,9 @@
 package xyz.jinyuxin.offer;
 
 /**
- *面试题24：反转链表
- * */
+ * 面试题24：反转链表
+ */
 public class Solution24 {
-  public static void main(String[] args) {
-    int[] arr = {100, 101, 25, 45, 74, 86, 98};
-    ListNode list = ListNode.createListTail(arr);
-    System.out.println("反转之前的链表为:");
-    ListNode.printList(list.next);
-    reverseList(list);
-    System.out.println("反转之后的链表为:");
-    ListNode.printList(list.next);
-  }
 
   public static ListNode reverseList(ListNode list) {
     //如果没有元素，就返回头结点

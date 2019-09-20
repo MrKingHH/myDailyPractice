@@ -31,11 +31,11 @@ public class Java8Test02 {
     Set<String> set = ZoneId.getAvailableZoneIds();
     Iterator<String> iterator = set.iterator();
     int i = 0;
-    while (iterator.hasNext()){
+    while (iterator.hasNext()) {
       i++;
       String str = iterator.next();
-      System.out.print(str+" ");
-      if (i % 6 ==0) {
+      System.out.print(str + " ");
+      if (i % 6 == 0) {
         System.out.println();
       }
     }
@@ -47,26 +47,25 @@ public class Java8Test02 {
     LocalTime localTime2 = LocalTime.now(zoneId2);
 
     //后面的减前面的
-    long hoursBetween = ChronoUnit.HOURS.between(localTime2,localTime1);
-    long minutesBetween = ChronoUnit.MINUTES.between(localTime1,localTime2);
+    long hoursBetween = ChronoUnit.HOURS.between(localTime2, localTime1);
+    long minutesBetween = ChronoUnit.MINUTES.between(localTime1, localTime2);
     //后面的是不是比前面的快，返回此处true
     System.out.println(localTime1.isBefore(localTime2));
     System.out.println(hoursBetween);
     System.out.println(minutesBetween);
-    System.out.println("现在的时间是："+localTime1);
+    System.out.println("现在的时间是：" + localTime1);
 
     LocalDate today = LocalDate.now();//获取现在的日期
-    System.out.println("今天的日期: "+today);//2019-09-15
+    System.out.println("今天的日期: " + today);//2019-09-15
     LocalDate tomorrow = today.plus(1, ChronoUnit.DAYS);
-    System.out.println("明天的日期: "+tomorrow);//2019-09-16
+    System.out.println("明天的日期: " + tomorrow);//2019-09-16
     LocalDate yesterday = tomorrow.minusDays(2);
-    System.out.println("昨天的日期: "+yesterday);//2019-09-14
+    System.out.println("昨天的日期: " + yesterday);//2019-09-14
 
     //构造具体的某一天
     LocalDate independenceDay = LocalDate.of(2019, Month.SEPTEMBER, 15);
     DayOfWeek dayOfWeek = independenceDay.getDayOfWeek();
-    System.out.println("今天是周几:"+dayOfWeek);//sunday
-
+    System.out.println("今天是周几:" + dayOfWeek);//sunday
 
 
   }

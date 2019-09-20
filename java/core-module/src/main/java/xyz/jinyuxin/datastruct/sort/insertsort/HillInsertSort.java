@@ -1,17 +1,11 @@
 package xyz.jinyuxin.datastruct.sort.insertsort;
 
 public class HillInsertSort {
-  public static void main(String[] args) {
-    int[] arr = {-1, 6, 5, 7, 4, 2, 3, 1};
-    hillInsertSort(arr);
-    for (int x : arr) {
-      System.out.println(x);
-    }
-  }
-
   public static void hillInsertSort(int[] arr) {
     int len = arr.length;
-    int dk, i, j;
+    int dk;
+    int i;
+    int j;
     //控制步长，步长慢慢变小，最后等于1
     for (dk = len >> 1; dk >= 1; dk = dk >> 1) {
       //从1+dk之后每次逐步移动1位

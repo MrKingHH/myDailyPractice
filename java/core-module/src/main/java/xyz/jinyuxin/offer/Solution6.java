@@ -5,16 +5,8 @@ import java.util.Stack;
 
 /**
  * 面试题6：从头到尾打印链表(不能改变原有结构)
- * */
+ */
 public class Solution6 {
-  public static void main(String[] args) {
-    int[] arr = {100, 101, 25, 45, 74, 86, 98};
-    ListNode list = ListNode.createListTail(arr);
-    ListNode.printList(list.next);
-    printListFromTailWithStack(list);
-  }
-
-
   public static void printListFromTailWithStack(ListNode list) {
     //从尾到头打印链表
     System.out.println("借助栈从尾到头打印链表: ");

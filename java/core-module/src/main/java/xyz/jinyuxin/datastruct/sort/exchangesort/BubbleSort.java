@@ -1,18 +1,8 @@
 package xyz.jinyuxin.datastruct.sort.exchangesort;
 
 public class BubbleSort {
-  public static void main(String[] args) {
-    int[] arr = {8, 6, 5, 7, 4, 2, 3, 1};
-    BubbleSort.bubbleSort(arr);
-    for (int i : arr) {
-      System.out.println(i);
-    }
-    double x = 3.0/9;
-    float y = 3.0f/9;
-    //double精确到16位
-    System.out.println(x);
-    //float精确到8位
-    System.out.println(y);
+  public BubbleSort() {
+
   }
 
   public static void bubbleSort(int[] arr) {

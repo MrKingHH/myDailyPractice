@@ -1,16 +1,12 @@
 package xyz.jinyuxin.datastruct.sort.insertsort;
 
 public class HalfInsertSort {
-  public static void main(String[] args) {
-    int[] arr = {-1, 6, 5, 7, 6, 4, 2, 3, 1};
-    halfInsertSort(arr);
-    for (int x : arr) {
-      System.out.println(x);
-    }
-  }
-
   public static void halfInsertSort(int[] arr) {
-    int i, j, low, high, mid;
+    int i;
+    int j;
+    int low;
+    int high;
+    int mid;
     int len = arr.length;
     //从第二个元素开始往前插入
     for (i = 2; i < len; i++) {

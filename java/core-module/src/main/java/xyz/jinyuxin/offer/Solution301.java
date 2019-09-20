@@ -5,29 +5,22 @@ import java.util.Iterator;
 
 /**
  * 面试题3：找出数组中重复的数字
- * */
-public class Solution3_1 {
-
-  public static void main(String[] args) {
-    int[] arr = {2,3,1,1,2,5,3};
-    ArrayList<Integer> arrayList = new ArrayList<Integer>(5);
-    removeDuplcate(arr, arrayList);
-  }
-
+ */
+public class Solution301 {
   public static void removeDuplcate(int[] arr, ArrayList<Integer> duplication) {
-    if (arr== null || arr.length <= 0) {
-      return ;
+    if (arr == null || arr.length <= 0) {
+      return;
     }
     int len = arr.length;
-    for (int i=0;i<len;i++) {
-      if (arr[i]<0 || arr[i] > len-1) {
-        return ;
+    for (int i = 0; i < len; i++) {
+      if (arr[i] < 0 || arr[i] > len - 1) {
+        return;
       }
     }
 
-    for (int i=0;i<len;i++) {
-      while(arr[i] != i) {
-        if(arr[i] == arr[arr[i]]) {
+    for (int i = 0; i < len; i++) {
+      while (arr[i] != i) {
+        if (arr[i] == arr[arr[i]]) {
           duplication.add(arr[i]);
           break;
         }

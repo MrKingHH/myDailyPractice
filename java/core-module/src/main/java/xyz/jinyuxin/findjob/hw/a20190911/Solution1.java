@@ -2,7 +2,6 @@ package xyz.jinyuxin.findjob.hw.a20190911;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -12,14 +11,6 @@ import java.util.Scanner;
  * 输出：{1,2}{3,4}{5,6}
  * */
 public class Solution1 {
-
-  public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    String line = sc.nextLine();
-    List<String> list = getString(line);
-    printPair(list);
-  }
-
   //1,2,3 4,5,6 1
   public static void printPair(List<String> list) {
     //1 2 3
@@ -50,7 +41,7 @@ public class Solution1 {
             System.out.print("(" + intArr1[i] + "," + intArr2[j] + ")");
           } else {
             //在距离大于distance的时候，要保证ai在前面没有找到距离小于等于distance的数，即times[i]等于0
-           if (times[i] == 0) {
+            if (times[i] == 0) {
               System.out.print("(" + intArr1[i] + "," + intArr2[j] + ")");
             }
           }
@@ -65,14 +56,14 @@ public class Solution1 {
   public static List<String> getString(String line) {
     List<String> list = new ArrayList<>();
     String[] strArr = line.split("=");
-    String aSection = strArr[1];
-    String bSection = strArr[2];
+    String asection = strArr[1];
+    String bsection = strArr[2];
     //1,3,5
-    String aNumber = aSection.substring(1, aSection.length() - 3);
+    String anumber = asection.substring(1, asection.length() - 3);
     //2,4,6
-    String bNumber = bSection.substring(1, bSection.length() - 3);
-    list.add(aNumber);
-    list.add(bNumber);
+    String bnumber = bsection.substring(1, bsection.length() - 3);
+    list.add(anumber);
+    list.add(bnumber);
     //最后一个是R的值 1
     list.add(strArr[strArr.length - 1]);
     return list;

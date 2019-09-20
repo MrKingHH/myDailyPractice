@@ -1,20 +1,11 @@
 package xyz.jinyuxin.datastruct.sort.insertsort;
 
 public class DirectInsertSort {
-  public static void main(String[] args) {
-//    int[] arr = {-1, 8, 6, 5, 7, 4, 2, 3, 1};
-    int[] arr = {8, 6, 5, 7, 4, 2, 3, 1};
-//    insertSort(arr);
-    insertSort1(arr);
-    for (int i : arr) {
-      System.out.println(i);
-    }
-  }
-
   //用了第0个元素作为哨兵，所以第0个元素不参与排序
   public static void insertSort(int[] arr) {
     int len = arr.length;
-    int i, j;
+    int i;
+    int j;
     if (len == 1) {
       return;
     }
@@ -41,10 +32,11 @@ public class DirectInsertSort {
    * 这种不用哨兵的方法时间和空间的效率太低
    * 每次循环都要多一次逻辑与的判断
    * 还借助临时变量
-   * */
+   */
   public static void insertSort1(int[] arr) {
     int len = arr.length;
-    int i, j;
+    int i;
+    int j;
     if (len == 1) {
       return;
     }

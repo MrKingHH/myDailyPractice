@@ -5,15 +5,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class RadixSort {
-  public static void main(String[] args) {
-    int[] arr = {542, 3521, 13459, 852, 742, 46, 2, 1, 633, 32};
-    radixSort(arr);
-    System.out.println("基数排序的最终结果是:");
-    for (int x : arr) {
-      System.out.println(x);
-    }
-  }
-
   public static void radixSort(int[] arr) {
     //找到待排序数组的最大数
     int max = findMax(arr);

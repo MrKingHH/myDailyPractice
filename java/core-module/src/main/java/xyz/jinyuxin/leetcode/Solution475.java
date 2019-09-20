@@ -4,11 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Solution475 {
-  public static void main(String[] args) {
-    int[] arr1 = {1, 2, 3};//1 2 3 4
-    int[] arr2 = {2};//1 4
-
-  }
 
   /**
    * 475. 供暖器：冬季已经来临。 你的任务是设计一个有固定加热半径的供暖器向所有房屋供暖。
@@ -29,10 +24,10 @@ public class Solution475 {
     for (int i = 0; i < len1; i++) {
       for (int j = 0; j < len2; j++) {
         //如果供暖器在该房屋或者后面
-        if(heaters[j] >= houses[i]) {
-          int back = heaters[j]-houses[i];
-        } else {//如果供暖器在该房屋前面
-          int front = houses[i]-heaters[j];
+        if (heaters[j] >= houses[i]) {
+          int back = heaters[j] - houses[i];
+        } else { //如果供暖器在该房屋前面
+          int front = houses[i] - heaters[j];
         }
 
       }

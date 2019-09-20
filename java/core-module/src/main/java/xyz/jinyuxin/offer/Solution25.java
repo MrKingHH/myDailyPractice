@@ -4,25 +4,6 @@ package xyz.jinyuxin.offer;
  * 面试题25：合并两个有序的链表
  */
 public class Solution25 {
-  public static void main(String[] args) {
-    int[] arr1 = {1, 3, 5, 7, 9, 10};
-    int[] arr2 = {2, 4, 6, 8};
-    ListNode list1 = ListNode.createListTail(arr1);
-    ListNode list2 = ListNode.createListTail(arr2);
-    System.out.println("递归方法合并结果为：");
-    ListNode.printList(mergeList(list1.next, list2.next));
-
-    ListNode list3 = ListNode.createListTail(arr1);
-    ListNode list4 = ListNode.createListTail(arr2);
-    System.out.println("利用新链表的非递归方法合并结果为：");
-    ListNode.printList(mergeList1(list3.next, list4.next));
-
-    ListNode list5 = ListNode.createListTail(arr1);
-    ListNode list6 = ListNode.createListTail(arr2);
-    System.out.println("不利用新链表的非递归方法合并结果为：");
-    ListNode.printList(mergeList2(list5.next, list6.next));
-  }
-
   /**
    * 递归方式，不用新的链表。
    *

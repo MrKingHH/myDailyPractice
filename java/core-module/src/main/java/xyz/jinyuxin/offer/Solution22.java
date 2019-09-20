@@ -1,16 +1,9 @@
 package xyz.jinyuxin.offer;
 
-
 /**
  * 面试题22：链表倒数第K个节点
- * */
+ */
 public class Solution22 {
-  public static void main(String[] args) {
-    int[] arr = {100, 101, 25, 45, 74, 86, 98};
-    ListNode list = ListNode.createListTail(arr);
-    System.out.println(findKElem(list, 3).data);
-    System.out.println(findKElem(list, 5).data);
-  }
 
   public static ListNode findKElem(ListNode list, int k) {
     System.out.println("查找倒数第" + k + "个结点:");
@@ -19,7 +12,8 @@ public class Solution22 {
       return list;
     }
     //指向第一个元素
-    ListNode p1 = list.next, p2 = list.next;
+    ListNode p1 = list.next;
+    ListNode p2 = list.next;
     //p2先走k-1步
     for (int i = 0; i < k - 1; i++) {
       if (p2.next != null) {

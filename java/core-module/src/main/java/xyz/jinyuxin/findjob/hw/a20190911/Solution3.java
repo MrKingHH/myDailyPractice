@@ -19,15 +19,15 @@ import java.util.Scanner;
  * cz7132,a2,zhaosi
  * cz7156,a2,zhangsan
  * cz7156,a3,wangwu
- * */
+ */
 public class Solution3 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String n = sc.nextLine();
-    int N = Integer.parseInt(n);
-    List<Ticket> list = new ArrayList<>(N);
+    int intn = Integer.parseInt(n);
+    List<Ticket> list = new ArrayList<>(intn);
     //输入N个航班
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < intn; i++) {
       String line = sc.nextLine();
       String[] strs = line.split(",");
       Ticket temp = new Ticket(strs[0], strs[1], strs[2]);
@@ -35,8 +35,8 @@ public class Solution3 {
     }
     //输入调整的航班，输入一行，调整一行
     String m = sc.nextLine();
-    int M = Integer.parseInt(m);
-    for (int i = 0; i < M; i++) {
+    int intm = Integer.parseInt(m);
+    for (int i = 0; i < intm; i++) {
       String line = sc.nextLine();
       //得到cz7132 A1  cz7156 A2
       String[] strs = line.split(",");
@@ -57,38 +57,41 @@ public class Solution3 {
 
     Collections.sort(list);
     for (int i = 0; i < list.size(); i++) {
-      System.out.println(list.get(i).hangban + "," + list.get(i).zuoweihao + "," + list.get(i).chengkeming);
+      System.out.println(list.get(i).hangban + ","
+              + list.get(i).zuoweihao + "," + list.get(i).chengkeming);
     }
 
   }
-}
 
-class Ticket implements Comparable<Ticket> {
+  static class Ticket implements Comparable<Ticket> {
 
-  String hangban;
-  String zuoweihao;
-  String chengkeming;
-  boolean modify = false;
+    String hangban;
+    String zuoweihao;
+    String chengkeming;
+    boolean modify = false;
 
-  public Ticket(String hangban, String zuoweihao, String chengkeming) {
-    this.hangban = hangban;
-    this.zuoweihao = zuoweihao;
-    this.chengkeming = chengkeming;
-  }
+    public Ticket(String hangban, String zuoweihao, String chengkeming) {
+      this.hangban = hangban;
+      this.zuoweihao = zuoweihao;
+      this.chengkeming = chengkeming;
+    }
 
-  //先按照航班号升序 再按座位号升序
-  @Override
-  public int compareTo(Ticket o) {
-    if (this.hangban.compareTo(o.hangban) < 0) {
-      return -1;
-    } else if (this.hangban.compareTo(o.hangban) > 0) {
-      return 1;
-    } else if (this.zuoweihao.compareTo(o.zuoweihao) < 0) {
-      return -1;
-    } else if (this.zuoweihao.compareTo(o.zuoweihao) > 0) {
-      return 1;
-    } else {
-      return 0;
+    //先按照航班号升序 再按座位号升序
+    @Override
+    public int compareTo(Ticket o) {
+      if (this.hangban.compareTo(o.hangban) < 0) {
+        return -1;
+      } else if (this.hangban.compareTo(o.hangban) > 0) {
+        return 1;
+      } else if (this.zuoweihao.compareTo(o.zuoweihao) < 0) {
+        return -1;
+      } else if (this.zuoweihao.compareTo(o.zuoweihao) > 0) {
+        return 1;
+      } else {
+        return 0;
+      }
     }
   }
+
 }
+
