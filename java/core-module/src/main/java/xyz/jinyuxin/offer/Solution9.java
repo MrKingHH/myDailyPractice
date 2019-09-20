@@ -25,7 +25,7 @@ public class Solution9 {
     stack1.push(elem);
   }
 
-  public static <T extends Number> T deleteHead() {
+  public static <T extends Number> Object deleteHead() {
     if (stack2.empty()) {
       while(!stack1.empty()) {
         stack2.push(stack1.pop());
@@ -35,6 +35,6 @@ public class Solution9 {
     if (stack2.empty()) {
       throw new RuntimeException("queue is empty");
     }
-    return (T) stack2.pop();
+    return stack2.pop();
   }
 }
