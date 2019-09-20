@@ -3,13 +3,12 @@ package xyz.jinyuxin.findjob.hw.a20190911;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * 1. ai<=bj
- * 2. ai bj 距离小于等于r 找不到的话就返回最近的那个,没有最近的，就丢弃ai。
- * 输入:A={1,3,5},B={2,4,6},R=1
- * 输出：{1,2}{3,4}{5,6}
- * */
+
+// * 1. ai<=bj
+// * 2. ai bj 距离小于等于r 找不到的话就返回最近的那个,没有最近的，就丢弃ai。
+// * 输入:A={1,3,5},B={2,4,6},R=1
+// * 输出：{1,2}{3,4}{5,6}
+// *
 public class Solution1 {
 
   //1,2,3 4,5,6 1

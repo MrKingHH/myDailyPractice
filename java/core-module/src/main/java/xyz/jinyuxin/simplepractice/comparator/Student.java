@@ -13,24 +13,22 @@ public class Student implements Comparable<Student> {
     this.name = name;
   }
 
-  /**
-   * this.id - o.id ->按照id升序
-   * o.id - this.id ->按照id降序
-   * this.age - o.age -> 按照age升序
-   * o.age - this.age -> 按照age降序
-   * this.score - o.score -> 按照score升序
-   * o.score-this.score 按照降序
-   * 总结就是：this在前 按照字段升序，this在后，按照字段降序
-   * <p>
-   * //按照名字长度排序
-   * this.name.length() - o.name.length()
-   * <p>
-   * //按照字典排序
-   * //升序
-   * this.name.compareTo(o.name) <0 return -1
-   * //降序
-   * this.name.compareTo(o.name) <0 return 1
-   */
+  //   * this.id - o.id ->按照id升序
+  //   * o.id - this.id ->按照id降序
+  //   * this.age - o.age -> 按照age升序
+  //   * o.age - this.age -> 按照age降序
+  //   * this.score - o.score -> 按照score升序
+  //   * o.score-this.score 按照降序
+  //   * 总结就是：this在前 按照字段升序，this在后，按照字段降序
+  //   * <p>
+  //   * //按照名字长度排序
+  //   * this.name.length() - o.name.length()
+  //   * <p>
+  //   * //按照字典排序
+  //   * //升序
+  //   * this.name.compareTo(o.name) <0 return -1
+  //   * //降序
+  //   * this.name.compareTo(o.name) <0 return 1
   @Override
   public int compareTo(Student o) {
     //按照字母升序
