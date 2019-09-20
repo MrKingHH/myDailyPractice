@@ -1,6 +1,7 @@
 package xyz.jinyuxin.datastruct.sort.exchangesort;
 
 public class QuickSort {
+
   public static void quickSort(int[] arr, int low, int high) {
     if (low < high) {
       int pos = findPosition(arr, low, high);

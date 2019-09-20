@@ -1,6 +1,7 @@
 package xyz.jinyuxin.datastruct.tree;
 
 public class BuildBinaryTree {
+
   public static BinaryTyeeNode construct(int[] pre, int[] in) {
     if (pre == null || in == null) {
       return null;
@@ -48,13 +49,7 @@ public class BuildBinaryTree {
     return node;
   }
 
-  public static void preOrder(BinaryTyeeNode root) {
-    if (root != null) {
-      System.out.println(root.data);
-      preOrder(root.left);
-      preOrder(root.right);
-    }
-  }
+
 
   static class BinaryTyeeNode {
     int data;
@@ -65,6 +60,14 @@ public class BuildBinaryTree {
       this.data = data;
       this.left = null;
       this.right = null;
+    }
+
+    public static void preOrder(BinaryTyeeNode root) {
+      if (root != null) {
+        System.out.println(root.data);
+        preOrder(root.left);
+        preOrder(root.right);
+      }
     }
   }
 }

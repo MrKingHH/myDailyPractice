@@ -1,6 +1,7 @@
 package xyz.jinyuxin.leetcode;
 
 public class Solution859 {
+
   /**
    * 859.亲密字符串
    * 解题思路:
@@ -60,4 +61,5 @@ public class Solution859 {
 
     return flag;
   }
+
 }

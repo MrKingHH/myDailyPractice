@@ -1,15 +1,6 @@
 package xyz.jinyuxin.datastruct.search;
 
 public class HalfSearch {
-  public static void main(String[] args) {
-    int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int pos = halfSearch(arr, 10);
-    System.out.println(pos);
-  }
-
-  private HalfSearch() {
-
-  }
 
   public static int halfSearch(int[] arr, int value) {
     int len = arr.length;
@@ -34,4 +25,5 @@ public class HalfSearch {
     }
     return -1;
   }
+
 }

@@ -1,6 +1,7 @@
 package xyz.jinyuxin.datastruct.sort.insertsort;
 
 public class DirectInsertSort {
+
   //用了第0个元素作为哨兵，所以第0个元素不参与排序
   public static void insertSort(int[] arr) {
     int len = arr.length;
@@ -53,4 +54,5 @@ public class DirectInsertSort {
       }
     }
   }
+
 }

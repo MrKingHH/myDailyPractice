@@ -1,6 +1,7 @@
 package xyz.jinyuxin.leetcode;
 
 public class Solution5 {
+
   public static void main(String[] args) {
     String s = "jhgtrclvzumufurdemsogfkpzcwgyepdwucnxrsubrxadne";
 
@@ -40,4 +41,5 @@ public class Solution5 {
 
     return flag;
   }
+
 }

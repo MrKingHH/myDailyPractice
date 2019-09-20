@@ -1,6 +1,7 @@
 package xyz.jinyuxin.datastruct.sort.insertsort;
 
 public class HalfInsertSort {
+
   public static void halfInsertSort(int[] arr) {
     int i;
     int j;

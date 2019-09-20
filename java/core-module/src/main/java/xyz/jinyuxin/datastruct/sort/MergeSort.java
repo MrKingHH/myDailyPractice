@@ -1,6 +1,7 @@
 package xyz.jinyuxin.datastruct.sort;
 
 public class MergeSort {
+
   public static void mergeSort(int[] arr, int low, int high) {
     if (low < high) {
       int mid = (low + high) / 2;
@@ -40,6 +41,6 @@ public class MergeSort {
       arr[k++] = temp[j - low];
       j++;
     }
-
   }
+
 }

@@ -21,6 +21,7 @@ import java.util.Scanner;
  * cz7156,a3,wangwu
  */
 public class Solution3 {
+
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String n = sc.nextLine();

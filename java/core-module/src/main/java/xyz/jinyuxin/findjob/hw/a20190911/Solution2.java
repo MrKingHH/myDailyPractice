@@ -6,6 +6,7 @@ package xyz.jinyuxin.findjob.hw.a20190911;
  * 输出：dent stu standing out 20-years an am I
  */
 public class Solution2 {
+
   public static void printReverseString(String line) {
     //两个--替换成一个空格
     String str = line.replaceAll("--", " ");
@@ -32,6 +33,6 @@ public class Solution2 {
         System.out.print(strArr[i] + " ");
       }
     }
-
   }
+
 }

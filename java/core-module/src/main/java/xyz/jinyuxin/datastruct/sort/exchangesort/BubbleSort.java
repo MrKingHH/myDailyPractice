@@ -1,9 +1,6 @@
 package xyz.jinyuxin.datastruct.sort.exchangesort;
 
 public class BubbleSort {
-  public BubbleSort() {
-
-  }
 
   public static void bubbleSort(int[] arr) {
     int len = arr.length;
@@ -20,4 +17,5 @@ public class BubbleSort {
       }
     }
   }
+
 }

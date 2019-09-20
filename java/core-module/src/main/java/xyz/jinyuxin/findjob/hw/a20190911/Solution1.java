@@ -11,6 +11,7 @@ import java.util.List;
  * 输出：{1,2}{3,4}{5,6}
  * */
 public class Solution1 {
+
   //1,2,3 4,5,6 1
   public static void printPair(List<String> list) {
     //1 2 3
@@ -50,7 +51,6 @@ public class Solution1 {
     }
 
   }
-
 
   //得到 A B R 三部分的字符串
   public static List<String> getString(String line) {

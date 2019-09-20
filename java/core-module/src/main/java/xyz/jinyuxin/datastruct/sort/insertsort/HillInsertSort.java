@@ -1,6 +1,7 @@
 package xyz.jinyuxin.datastruct.sort.insertsort;
 
 public class HillInsertSort {
+
   public static void hillInsertSort(int[] arr) {
     int len = arr.length;
     int dk;
