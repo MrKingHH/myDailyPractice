@@ -7,6 +7,15 @@
     <groupId>com.github.mrkinghh</groupId>
     <artifactId>core</artifactId>
     <version>0.1.0</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
