@@ -1,6 +1,7 @@
 package com.github.mrkinghh.simplepractice.proxy;
 
 import java.lang.reflect.Proxy;
+
 import com.github.mrkinghh.simplepractice.proxy.client.RpcProxyClient;
 import com.github.mrkinghh.simplepractice.proxy.server.HelloWorldInterface;
 import com.github.mrkinghh.simplepractice.proxy.server.HelloWorldService;
@@ -12,8 +13,8 @@ public class ProxyTest {
     RpcProxyClient rpcProxyClient = new RpcProxyClient(new HelloWorldService());
     //获取代理类实例
     HelloWorldInterface helloWorldInterface = (HelloWorldInterface)
-        Proxy.newProxyInstance(HelloWorldInterface.class.getClassLoader(),
-            new Class[] {HelloWorldInterface.class}, rpcProxyClient);
+            Proxy.newProxyInstance(HelloWorldInterface.class.getClassLoader(),
+                    new Class[]{HelloWorldInterface.class}, rpcProxyClient);
     helloWorldInterface.sayHello("hhhhh");
 
   }

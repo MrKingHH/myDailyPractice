@@ -13,31 +13,31 @@ import java.util.concurrent.ExecutionException;
  */
 public class Class2 {
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        ExecutorService threadPool = Executors.newFixedThreadPool(5);
+  public static void main(String[] args) throws ExecutionException, InterruptedException {
+    ExecutorService threadPool = Executors.newFixedThreadPool(5);
 
-        List<Future<Integer>> futureList = new ArrayList<Future<Integer>>();
+    List<Future<Integer>> futureList = new ArrayList<Future<Integer>>();
 
-        //做十次  从0加到100 的求和运算
-        for (int i = 0; i < 10; i++) {
-            Future<Integer> future = threadPool.submit(() -> {
-                int sum = 0;
+    //做十次  从0加到100 的求和运算
+    for (int i = 0; i < 10; i++) {
+      Future<Integer> future = threadPool.submit(() -> {
+        int sum = 0;
 
-                for (int j=0; j<=100; j++) {
-                    sum+=j;
-                }
-
-                return sum;
-            });
-            futureList.add(future);
+        for (int j = 0; j <= 100; j++) {
+          sum += j;
         }
 
-        threadPool.shutdown();
-
-        for (Future<Integer> future : futureList) {
-            System.out.println(future.get());
-        }
-
+        return sum;
+      });
+      futureList.add(future);
     }
+
+    threadPool.shutdown();
+
+    for (Future<Integer> future : futureList) {
+      System.out.println(future.get());
+    }
+
+  }
 
 }

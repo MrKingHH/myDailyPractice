@@ -8,7 +8,7 @@ public class CglibTest {
     //委托对象
     CglibService service = new CglibService();
     //代理对象
-    CglibService proxy = (CglibService)new CglibProxy(service).getProxyInstance();
+    CglibService proxy = (CglibService) new CglibProxy(service).getProxyInstance();
     proxy.sayHi();
   }
 }
