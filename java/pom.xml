@@ -6,50 +6,12 @@
 
     <groupId>com.github.mrkinghh</groupId>
     <artifactId>core</artifactId>
+    <packaging>pom</packaging>
     <version>0.1.0</version>
-
-    <dependencies>
-
-        <dependency>
-            <groupId>org.dst.rpc</groupId>
-            <artifactId>core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.2.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.2.5</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.14.3</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.42.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.8.0</version>
-            <scope>compile</scope>
-        </dependency>
-
-    </dependencies>
+    <modules>
+        <module>jrpc</module>
+        <module>practice</module>
+    </modules>
 
     <build>
         <plugins>
