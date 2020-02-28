@@ -8,7 +8,7 @@
     <!--配置pageHelper拦截器:PageHelper-->
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageHelper">
-            <property name="dialect" value="mysql"></property>
+            <property name="dialect" value="mysql"/>
         </plugin>
     </plugins>
 </configuration>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="xyz.jinyuxin.dao.UserMapper">
+
+    <!--增加一个User-->
+    <insert id="addUser" parameterType="xyz.jinyuxin.entity.User">
+        insert into jinyuxin.user(name, age)
+        values (#{name}, #{age})
+    </insert>
+
+
+    <!--查询全部User-->
+    <select id="getAll" resultType="xyz.jinyuxin.entity.User">
+        select * from jinyuxin.user
+    </select>
+
+</mapper>

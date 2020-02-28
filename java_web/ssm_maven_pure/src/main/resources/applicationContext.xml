@@ -20,10 +20,10 @@
 
     <!--    配置数据源及数据库连接池:BasicDataSource-->
     <bean id="basicDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="driverClassName" value="${driverClassName}"></property>
-        <property name="url" value="${url}"></property>
-        <property name="username" value="${username}"></property>
-        <property name="password" value="${password}"></property>
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
     </bean>
 
     <!--    配置书写sqL语句的xml文件位置:SqlSessionFactoryBean-->
@@ -39,7 +39,7 @@
     <!--    读取dao层接口类，将接口与对应的xml文件关联:MapperScannerConfigurer-->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--        指定dao接口类位置-->
-        <property name="basePackage" value="com.java.mapper"></property>
+        <property name="basePackage" value="com.java.mapper"/>
     </bean>
 
 </beans>
